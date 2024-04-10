@@ -83,8 +83,8 @@ export default function Navbar() {
                 </Button>
 
                 <Button className="btnRes">
-                  <a href="#Agenda">
-                    <b>Agenda Citas</b>
+                  <a href="#AnalisisEstadistico">
+                    <b>Analisis Estadistico</b>
                   </a>
                 </Button>
               </HStack>
@@ -224,8 +224,8 @@ export default function Navbar() {
                     transform: "scale(1.2)",
                   }}
                 >
-                  <a href="#Agenda">
-                    <b>Agenda</b>
+                  <a href="#AnalisisEstadistico">
+                    <b>AnalisisEstadistico</b>
                   </a>
                 </Button>
               </Stack>

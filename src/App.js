@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Navbar from './Components/Navbar';
 import Paciente from './Pages/Paciente';
-import Agenda from './Pages/Agenda';
+import AnalisisEstadistico from './Pages/AnalisisEstadistico';
 import Home from './Pages/Home';
 import Profesional from './Pages/Profesional';
 import Calculadora from './Pages/Calculadora';
@@ -16,7 +16,7 @@ function App() {
       <Paciente />
       <Profesional />
       <Calculadora/>
-      <Agenda/>
+      <AnalisisEstadistico/>
     </div>
   );
 }

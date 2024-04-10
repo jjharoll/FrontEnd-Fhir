@@ -87,6 +87,19 @@ const Calculadora = ({ handleSubmit }) => {
     }
   };
 
+  // Implementa la función para calcular el riesgo cardiovascular
+  const calcularRiesgoFramingham = () => {
+    // Aquí implementa la lógica para calcular el riesgo cardiovascular
+    // Utiliza los datos ingresados en formData
+    // Guarda el resultado y su interpretación en los estados correspondientes
+  };
+
+  const calcularRiesgoFindrisc = () => {
+    // Aquí implementa la lógica para calcular el riesgo cardiovascular
+    // Utiliza los datos ingresados en formData
+    // Guarda el resultado y su interpretación en los estados correspondientes
+  };
+
   const calculateIMC = () => {
     const { peso, estatura } = formData;
     if (!peso || !estatura) {
@@ -515,8 +528,11 @@ const Calculadora = ({ handleSubmit }) => {
           >
             Acepto términos y condiciones
           </Checkbox>
-          <Button colorScheme="blue" type="submit">
-            Calcular
+          <Button colorScheme="blue" onClick={calcularRiesgoFramingham} mb={4}>
+            Calcular Riesgo Framingham
+          </Button>
+          <Button colorScheme="blue" onClick={calcularRiesgoFindrisc}  mb={4}>
+            Calcular Riesgo FINDRISC
           </Button>
         </Box>
       </form>

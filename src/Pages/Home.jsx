@@ -15,7 +15,7 @@ const Home = () => {
         Simplifica la integración y el intercambio de datos de pacientes con nuestra plataforma basada en HL7 FHIR.
       </Text>
       <Button colorScheme="blue" size="lg" mr={4}>Calculadora</Button> {/* Hacer los botones más grandes */}
-      <Button colorScheme="green" size="lg">Ver Agenda de Citas</Button>
+      <Button colorScheme="green" size="lg">Ver Analisis Estadistico</Button>
       {/* Agrega más botones u enlaces según sea necesario */}
       <Text mt={8} fontSize="lg" fontStyle="italic">
         "Con HL7 FHIR, estamos transformando la forma en que se gestionan los datos de salud." - [Desarrollador/Jharol Andres Perez]
