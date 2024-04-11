@@ -17,7 +17,9 @@ import {
 } from "@chakra-ui/react";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; // Importa los estilos de react-toastify
-
+import SignosVitales from "./SignosVitales";
+import RiesgoFramingham from "./RiesgoFramingham";
+import RiesgoFindrisc from "./RiesgoFindrisc";
 
 const Calculadora = ({ handleSubmit }) => {
   const [formData, setFormData] = useState({
@@ -34,6 +36,25 @@ const Calculadora = ({ handleSubmit }) => {
   const [perimetroAbdominalData, setPerimetroAbdominalData] = useState(null);
   const [profesionalAsignado, setProfesionalAsignado] = useState(null);
   const [pacienteAsignado, setPacienteAsignado] = useState(null);
+   const [showSignosVitales, setShowSignosVitales] = useState(false);
+   const [showRiesgoFramingham, setShowRiesgoFramingham] = useState(false);
+   const [showRiesgoFindrisc, setshowRiesgoFindrisc] = useState(false);
+
+
+
+   const handleMostrarRiesgoFramingham = () => {
+    setShowRiesgoFramingham(true);
+  };
+ 
+  const handleMostrarRiesgoFindrisc = () => {
+    setshowRiesgoFindrisc(true);
+  };
+
+  
+  const handleMostrarSignosVitales = () => {
+    setShowSignosVitales(true);
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -399,117 +420,6 @@ const Calculadora = ({ handleSubmit }) => {
               mb={4}
             />
           )}
-          <FormControl id="ejercicioDiario" mb={4}>
-            <FormLabel>
-              ¿Realiza diariamente al menos 30 min de ejercicio?
-            </FormLabel>
-            <RadioGroup
-            name="ejercicioDiario"
-            value={formData.ejercicioDiario}
-            onChange={(e) => handleChange(e, "ejercicioDiario")}
-          >
-            <Radio value="Sí">Sí</Radio>
-            <Radio value="No">No</Radio>
-          </RadioGroup>
-          </FormControl>
-          <FormControl id="frecuenciaConsumo" mb={4}>
-            <FormLabel>Frecuencia de consumo de verduras y frutas</FormLabel>
-            <Select
-              name="frecuenciaConsumo"
-              value={formData.frecuenciaConsumo}
-              onChange={handleChange}
-            >
-              <option value="Todos los días">Todos los días</option>
-              <option value="No todos los días">No todos los días</option>
-            </Select>
-          </FormControl>
-          <FormControl id="medicamentoHipertension" mb={4}>
-            <FormLabel>
-              ¿Toma medicamento para la hipertensión?
-            </FormLabel>
-            <RadioGroup
-              name="medicamentoHipertension"
-              value={formData.medicamentoHipertension}
-              onChange={(e) => handleChange(e, "medicamentoHipertension")}
-            >
-              <Radio value="Sí">Sí</Radio>
-              <Radio value="No">No</Radio>
-            </RadioGroup>
-          </FormControl>
-          <FormControl id="altoAzucar" mb={4}>
-            <FormLabel>¿Le han encontrado valores alto de azúcar?</FormLabel>
-            <RadioGroup
-              name="altoAzucar"
-              value={formData.altoAzucar}
-              onChange={(e) => handleChange(e, "altoAzucar")}
-            >
-              <Radio value="Sí">Sí</Radio>
-              <Radio value="No">No</Radio>
-            </RadioGroup>
-          </FormControl>
-          <FormControl id="antecedentesDiabetes" mb={4}>
-            <FormLabel>Antecedentes de Diabetes</FormLabel>
-            <Select
-              name="antecedentesDiabetes"
-              value={formData.antecedentesDiabetes}
-              onChange={handleChange}
-            >
-              <option value="Sí, padre">Sí, padre</option>
-              <option value="Sí, abuelo">Sí, abuelo</option>
-              <option value="No">No</option>
-            </Select>
-          </FormControl>
-          <FormControl id="diabetico" mb={4}>
-            <FormLabel>¿Es diabético?</FormLabel>
-            <RadioGroup
-              name="diabetico"
-              value={formData.diabetico}
-              onChange={(e) => handleChange(e, "diabetico")}
-            >
-              <Radio value="Sí">Sí</Radio>
-              <Radio value="No">No</Radio>
-            </RadioGroup>
-          </FormControl>
-          <FormControl id="altoColesterol" mb={4}>
-            <FormLabel>¿Tiene alto colesterol?</FormLabel>
-            <RadioGroup
-              name="altoColesterol"
-              value={formData.altoColesterol}
-              onChange={(e) => handleChange(e, "altoColesterol")}
-            >
-              <Radio value="Sí">Sí</Radio>
-              <Radio value="No">No</Radio>
-            </RadioGroup>
-          </FormControl>
-          <FormControl id="valorColesterol" mb={4}>
-            <FormLabel>Valor colesterol (mg/dL)</FormLabel>
-            <Input
-              type="number"
-              name="valorColesterol"
-              value={formData.valorColesterol}
-              onChange={handleChange}
-            />
-          </FormControl>
-          <FormControl id="colesterolHDL" mb={4}>
-            <FormLabel>Colesterol HDL (mg)</FormLabel>
-            <Input
-              type="number"
-              name="colesterolHDL"
-              value={formData.colesterolHDL}
-              onChange={handleChange}
-            />
-          </FormControl>
-          <FormControl id="consumeTabaco" mb={4}>
-            <FormLabel>¿Consume tabaco?</FormLabel>
-            <RadioGroup
-              name="consumeTabaco"
-              value={formData.consumeTabaco}
-              onChange={(e) => handleChange(e, "consumeTabaco")}
-            >
-              <Radio value="Sí">Sí</Radio>
-              <Radio value="No">No</Radio>
-            </RadioGroup>
-          </FormControl>
           <FormControl id="valorTensionArterial" mb={4}>
             <FormLabel>Valor de tensión arterial</FormLabel>
             <Input
@@ -528,12 +438,20 @@ const Calculadora = ({ handleSubmit }) => {
           >
             Acepto términos y condiciones
           </Checkbox>
-          <Button colorScheme="blue" onClick={calcularRiesgoFramingham} mb={4}>
+          <Button colorScheme="blue" onClick={handleMostrarRiesgoFramingham} mb={4}>
             Calcular Riesgo Framingham
           </Button>
-          <Button colorScheme="blue" onClick={calcularRiesgoFindrisc}  mb={4}>
+          <Button colorScheme="blue" onClick={handleMostrarRiesgoFindrisc}  mb={4}>
             Calcular Riesgo FINDRISC
           </Button>
+          <Button colorScheme="blue" onClick={handleMostrarSignosVitales} mb={4}>
+          PANEL DE SIGNOS VITALES
+         </Button>
+         {showRiesgoFindrisc && <RiesgoFindrisc />}
+         
+          {showRiesgoFramingham && <RiesgoFramingham />}
+          {showSignosVitales && <SignosVitales />} {/* Muestra SignosVitales si showSignosVitales es true */}
+          
         </Box>
       </form>
     </Box>
